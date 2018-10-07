@@ -6,11 +6,9 @@
 
 namespace App\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-
 /**
  * Class TiMessageRepository
  */
-class TiMessageRepository extends ServiceEntityRepository
+class TiMessageRepository
 {
 }

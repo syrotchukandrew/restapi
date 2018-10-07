@@ -41,6 +41,14 @@ class TiMessage
     private $userId;
 
     /**
+     * One TiMessage has One VirtualState.
+     *
+     * @ORM\OneToOne(targetEntity="VirtualState", cascade={"persist"})
+     * @ORM\JoinColumn(name="virtual_state_id", referencedColumnName="id")
+     */
+    private $virtualState;
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -124,6 +132,26 @@ class TiMessage
     public function setUserId(?string $userId): TiMessage
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * @return null|VirtualState
+     */
+    public function getVirtualState(): ?VirtualState
+    {
+        return $this->virtualState;
+    }
+
+    /**
+     * @param VirtualState $virtualState
+     *
+     * @return TiMessage
+     */
+    public function setVirtualState(VirtualState $virtualState): TiMessage
+    {
+        $this->virtualState = $virtualState;
 
         return $this;
     }

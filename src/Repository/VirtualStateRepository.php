@@ -6,11 +6,9 @@
 
 namespace App\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-
 /**
  * Class VirtualStateRepository
  */
-class VirtualStateRepository extends ServiceEntityRepository
+class VirtualStateRepository
 {
 }
