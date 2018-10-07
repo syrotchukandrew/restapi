@@ -7,6 +7,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\VirtualStateRepository")
@@ -22,21 +23,31 @@ class VirtualState
 
     /**
      * @ORM\Column(type="string", length=50)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Ip
      */
     private $ip;
 
     /**
      * @ORM\Column(type="string", length=10)
+     *
+     * @Assert\NotBlank()
      */
     private $language;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Url()
      */
     private $reference;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank()
      */
     private $userAgent;
 

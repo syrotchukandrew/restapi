@@ -7,6 +7,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TiMessageRepository")
@@ -22,21 +23,31 @@ class TiMessage
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Uuid
      */
     private $clientId;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
+     * @Assert\NotBlank()
+     * @Assert\Url()
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Uuid
      */
     private $sessionId;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     *
+     * @Assert\Uuid
      */
     private $userId;
 
@@ -45,6 +56,8 @@ class TiMessage
      *
      * @ORM\OneToOne(targetEntity="VirtualState", cascade={"persist"})
      * @ORM\JoinColumn(name="virtual_state_id", referencedColumnName="id")
+     *
+     * @Assert\NotBlank()
      */
     private $virtualState;
 
