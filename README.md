@@ -15,6 +15,7 @@ $ git clone https://github.com/syrotchukandrew/restapi.git restapi
 ```console
 $ cd restapi
 ```
+ edit .env file (DB credentials) 
  
 ###Step 3: Install project
  
